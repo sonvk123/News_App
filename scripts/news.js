@@ -70,20 +70,22 @@ const pageSize = function (stt) {
   }
 };
 
-// tạo hàm lấy đata từ API
+// hàm lấy đata từ API
 const fetchData = async function (country, category, pageSize, page) {
-  try {
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=93758961f0d840eaafcba447bdea20c0`;
-    console.log(url);
-    const res = await fetch(url);
-    datas = await res.json();
-    totalResults = datas.totalResults;
-    data = datas.articles;
-    render(data);
-    return datas, data, totalResults;
-  } catch (err) {
-    console.error(err);
-  }
+  // try {
+  const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=93758961f0d840eaafcba447bdea20c0`;
+  console.log(url);
+  const res = await fetch(url);
+  datas = await res.json();
+  totalResults = datas.totalResults;
+  data = datas.articles;
+  console.log(data);
+  render(data);
+  return datas, data, totalResults;
+  // }
+  // catch (err) {
+  //   console.error(err);
+  // }
 };
 
 pageSize(1);
