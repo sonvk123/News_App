@@ -62,19 +62,18 @@
 
 		</div>
 	</div>
-	
 	<script>
-		// Lấy tham số 'code' từ URL
-		const urlParams = new URLSearchParams(window.location.search);
-		const code = urlParams.get('code');
-	
-		// Nếu có giá trị 'code', lưu vào localStorage và chuyển hướng đến ứng dụng của bạn
-		if (code) {
-			localStorage.setItem('authCode', code);
-			window.location.href = 'https://127.0.0.1:4200/';
-		}
-	</script>
-	
+    // Lấy tham số 'code' từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    // Nếu có giá trị 'code', chuyển hướng đến ứng dụng Angular và truyền giá trị 'code' qua URL
+    if (code) {
+        window.location.href = `https://127.0.0.1:4200/?code=${encodeURIComponent(code)}`;
+    }
+</script>
+
+
 	<script src="./models/User.js"></script>
 	<script src="./scripts//storage.js"></script>
 	<script src="./scripts/home.js"></script>
